@@ -36,18 +36,33 @@
         <div class="offcanvas-body p-0">
             <nav class="navbar-dark">
                 <ul class="navbar-nav">
+
                     <li>
                         <a href="index.php" class="nav-link px-3">
                             <span class="me-2"><i class="bi bi-speedometer"></i></span>
                             <span>Dashboard</span>
                         </a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle ms-3" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <span class="me-2"> <i class="bi bi-person"> </i></span>
+                            <span>Leave</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="shortleave.php">SHORT LEAVE</a></li>
+                            <li><a class="dropdown-item" href="longleave.php">LONG LEAVE</a></li>
+                        </ul>   
+                        </li>
                     <li>
                         <a href="logout.php" class="nav-link px-3">
                             <span class="me-2"><i class="bi bi-lock"></i></span>
                             <span>Logout</span>
                         </a>
                     </li>
+                    </a>
+                    </li>
+                    
                 </ul>
             </nav>
         </div>

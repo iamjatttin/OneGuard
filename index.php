@@ -1,3 +1,6 @@
+<?php
+include 'partials/dbconnect.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,10 +27,10 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 mt-5 text-center ms-auto">
-                    <h2>Here is where all the main content will be added</h2>
+                    <h2>Welcome !</h2>
+                    <p>This Project is under Construction</p>
                 </div>
             </div>
-
         </div>
     </main>
     <!-- Main Content end -->
