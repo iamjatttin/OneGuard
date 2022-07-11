@@ -16,7 +16,7 @@ $error=false;
     
     $username= $_POST['username'];
     $password= $_POST['password'];
-    $sql=" Select * from students where email='$username' AND password='$password'";
+    $sql=" Select * from staffs where email='$username' AND password='$password' AND role='1'";
     $result=mysqli_query($conn,$sql);
     $row=mysqli_fetch_assoc($result);
     $num=mysqli_num_rows($result);
@@ -24,7 +24,7 @@ $error=false;
     $login=true;
     $_SESSION['loggedin']=true;
     $_SESSION['username']=$username;
-    $_SESSION['student_id']=$row['id'];
+    $_SESSION['admin_id']=$row['id'];
     // echo($_SESSION['id']);
     header('location:index.php');
     }
@@ -43,11 +43,11 @@ $error=false;
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" />
-    <link rel="stylesheet" href="assets/css/dataTables.bootstrap5.min.css" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="icon" type="image/x-icon" href="assets/images/logo.png">
+    <link rel="stylesheet" href="../assets/css/dataTables.bootstrap5.min.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link rel="icon" type="image/x-icon" href="../assets/images/logo.png">
     <title>LOGIN</title>
     <style>
         body {
@@ -82,8 +82,11 @@ $error=false;
                             <i class="bi bi-person-fill"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="admin/login.php">Admin Login</a></li>
-                            <li><a class="dropdown-item" href="staffs/login.php">Faculty And staff login</a></li>
+                            <li><a class="dropdown-item" href="signup.php">SIGNUP</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -113,7 +116,7 @@ $error=false;
                     <h1 class="text-center">OneGuard</h1>
                     </div>
                     <div class="card-body p-2 mt-2">
-                      <u><h2 class="text-center">Student Login</h2></u>
+                      <u><h2 class="text-center">Login</h2></u>
                         <form action="login.php" method="POST">
                             <div class="mb-3" col-md-6>
                                 <label for="username" class="form-label">EMAIL</label>
@@ -125,7 +128,7 @@ $error=false;
                             </div>
                             <div class="mb-3 text-center">
                               <button type="submit" name="submitbtn" class="btn btn-primary">LOGIN</button>
-                              <a href="signup.php" class="btn btn-warning">Register</a>
+                              <!-- <a href="signup.php" class="btn btn-warning">Register</a> -->
                             </div>
                         </form>
                     </div>

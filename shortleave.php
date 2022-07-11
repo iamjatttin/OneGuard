@@ -2,7 +2,6 @@
 
 session_start();
 // echo ($_SESSION['id']);
-// echo($_SESSION['id']);
 include 'partials/dbconnect.php';
     if(isset($_POST['submitbtn'])){
     $id=$_SESSION['student_id'];
@@ -14,8 +13,13 @@ include 'partials/dbconnect.php';
     $result=mysqli_query($conn,$mysql);
     $row = mysqli_fetch_assoc($result);
     $roll=$row['roll_no'];
-    $sql="INSERT INTO short_leave (stdroll,leavedate,dtime,atime,reason) VALUES ( '$roll', '$ddate','$dtime', '$atime', '$reason')";
+    $rand=rand(10000,99999);
+    $sl='SL-';
+    $leave_id=$sl.$roll.$rand;
+    $sql="INSERT INTO leaves (leave_type,leave_id,stdroll,leavedate,dtime,atime,reason) VALUES ( '1','$leave_id','$roll', '$ddate','$dtime', '$atime', '$reason')";
     $result2=mysqli_query($conn,$sql);
+    $_SESSION['success']='Your Leave Request with ID: <strong>'.$leave_id.'</strong> has been placed.';
+    header('location:leaves.php');
   }
 ?>
 <!DOCTYPE html>
@@ -40,35 +44,87 @@ include 'partials/dbconnect.php';
     ?>
     <!-- header include -->
     <!-- Main COntent -->
-    <main class="mt-5 pt-3">
-        <div class="container-fluid">
+
+    <main class="mt-3">
+        <?php
+            if(isset($_SESSION['success'])){
+        ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Success!</strong>
+                    <?php
+                        echo $_SESSION['success'];
+                        unset($_SESSION['success']);
+                    ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+        <?php
+            }
+        ?>
+        <div class="container-fluid pt-4">
             <div class="row">
-                <h2 class="text-center">Short Leave Request</h2>
-                <div class="col-md-8 mt-5 mx-auto">
-                    <form action="shortleave.php" method="POST">
-                        <div class="container-fluid">
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">DEPARTURE DATE:</label>
-                                <input type="date" class="form-control" id="exampleInputdate" name="ddate" id="ddate">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">DEPARTURE TIME:</label>
-                                <input type="time" class="form-control" id="exampleInputdate" name="dtime" id="dtime">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">ARRIVAL TIME:</label>
-                                <input type="time" class="form-control" id="exampleInputdate" name="atime" id="atime">
-                            </div>
+                <div class="col-md-8 bg-info mx-auto">
+                    <div class="card">
+                        <div class="card-header ">
+                            <h2 class="text-center ">Short Leave Request</h2>
+                        </div>
+                        <div class="card-body">
+                            <form action="shortleave.php" method="POST">
+                                <div class="container-fluid">
+                                    <div class="mb-3">
+                                        <label for="exampleInputPassword1" class="form-label">Leave DATE:</label>
+                                        <input type="date" class="form-control" id="exampleInputdate" name="ddate"
+                                            id="ddate">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputPassword1" class="form-label">DEPARTURE TIME:</label>
+                                        <Select class="form-control" name="dtime">
+                                            <option selected disabled>Choose one..</option>
+                                            <option value="08:00 AM">08:00 AM</option>
+                                            <option value="09:00 AM">09:00 AM</option>
+                                            <option value="10:00 AM">10:00 AM</option>
+                                            <option value="11:00 AM">11:00 AM</option>
+                                            <option value="12:00 PM">12:00 PM</option>
+                                            <option value="01:00 PM">01:00 PM</option>
+                                            <option value="02:00 PM">02:00 PM</option>
+                                            <option value="03:00 PM">03:00 PM</option>
+                                            <option value="04:00 PM">04:00 PM</option>
+                                            <option value="05:00 PM">05:00 PM</option>
+                                            <option value="06:00 PM">06:00 PM</option>
+                                            <!-- <option value="19">8:00 AM</option> -->
+                                        </Select>
+                                        <!-- <input type="time" class="form-control" id="exampleInputdate" name="dtime" id="dtime"> -->
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputPassword1" class="form-label">ARRIVAL TIME:</label>
+                                        <Select class="form-control" name="atime">
+                                            <option selected disabled>Choose one..</option>
+                                            <option value="08:00 AM">08:00 AM</option>
+                                            <option value="09:00 AM">09:00 AM</option>
+                                            <option value="10:00 AM">10:00 AM</option>
+                                            <option value="11:00 AM">11:00 AM</option>
+                                            <option value="12:00 PM">12:00 PM</option>
+                                            <option value="01:00 PM">01:00 PM</option>
+                                            <option value="02:00 PM">02:00 PM</option>
+                                            <option value="03:00 PM">03:00 PM</option>
+                                            <option value="04:00 PM">04:00 PM</option>
+                                            <option value="05:00 PM">05:00 PM</option>
+                                            <option value="06:00 PM">06:00 PM</option>
+                                            <!-- <option value="19">8:00 AM</option> -->
+                                        </Select>
+                                    </div>
 
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">LEAVE REASON</label>
-                                <textarea class="form-control" name="reason" id="reason" placeholder="REASON FOR LEAVE"
-                                    id="floatingTextarea2" style="height: 100px"></textarea>
+                                    <div class="mb-3">
+                                        <label for="exampleInputPassword1" class="form-label">LEAVE REASON</label>
+                                        <textarea class="form-control" name="reason" id="reason"
+                                            placeholder="REASON FOR LEAVE" id="floatingTextarea2"
+                                            style="height: 100px"></textarea>
 
-                            </div>
-                            <button type="submit" name="submitbtn" class="btn btn-primary">Submit Application</button>
-                    </form>
-
+                                    </div>
+                                    <button type="submit" name="submitbtn" class="btn btn-primary">Submit
+                                        Application</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
 

@@ -53,14 +53,14 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+<meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="assets/css/dataTables.bootstrap5.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="icon" type="image/x-icon" href="assets/images/logo.png">
     <title>OneGuard | Register</title>
 </head>
 
@@ -136,15 +136,20 @@
                               <label for="username" class="form-label">BRANCH</label>
                               <select class="form-select" id="branch" name="branch"
                                   aria-label="Default select example">
-                                  <option selected>BTECH</option>
-                                  <option value="BCA">BCA</option>
-                                  <option value="BBA">BBA</option>
+                                  <option selected disabled>Choose One...</option>
+                                <option value="CSE">CSE</option>
+                                <option value="EEE">EEE</option>
+                                <option value="ECE">ECE</option>
+                                <option value="ME">ME</option>
+                                <option value="BCA">BCA</option>
+                                <option value="BBA">BBA</option>
                               </select>
                           </div>
                           <div class="mb-2 col-md-6">
                               <label for="username" class="form-label">SEMESTER</label>
                               <select class="form-select" id="semester" name="semester"
                                   aria-label="Default select example">
+                                  <option selected disabled>Choose One...</option>
                                   <option value="1" selected>1ST SEM</option>
                                   <option value="2">2ND SEM</option>
                                   <option value="3">3RD SEM</option>

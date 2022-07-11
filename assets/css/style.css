@@ -20,6 +20,10 @@ button {
 .sidebar-link[aria-expanded="true"] .right-icon {
   transform: rotate(180deg);
 }
+.dataTables_length{
+  float: left;
+  margin-left: 1rem;
+}
 @media (min-width: 992px) {
   body {
     overflow: auto !important;
@@ -38,4 +42,7 @@ button {
     height: calc(100% - var(--topNavbarHeight));
     top: var(--topNavbarHeight);
   }
+}
+.w-fit{
+  width: fit-content;
 }

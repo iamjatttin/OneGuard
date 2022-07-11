@@ -1,5 +1,5 @@
 <!-- top navigation bar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar"
                 aria-controls="offcanvasExample">
@@ -19,17 +19,17 @@
                             <i class="bi bi-person-fill"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="admin/login.php">Admin Login</a></li>
-                            <li><a class="dropdown-item" href="staffs/login.php">Faculty And staff login</a></li>
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-<div class='p-3 w-100'>
-    
-</div>
 <!-- top navigation bar -->
 <!-- offcanvas -->
     <div class="offcanvas offcanvas-start sidebar-nav bg-dark" tabindex="-1" id="sidebar">
@@ -49,6 +49,18 @@
                         </a>
                     </li>
                     <li>
+                        <a href="students.php" class="nav-link px-3">
+                            <span class="me-2"><i class="bi bi-file"></i></span>
+                            <span>Students</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="staffs.php" class="nav-link px-3">
+                            <span class="me-2"><i class="bi bi-file"></i></span>
+                            <span>Faculty and Staffs</span>
+                        </a>
+                    </li>
+                    <!-- <li>
                         <a class="nav-link px-3" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                         <span class="me-2"> <i class="bi bi-person"> </i></span>
                             Apply For Leave
@@ -57,9 +69,9 @@
                             <li><a class="nav-link ms-4" href="shortleave.php">SHORT LEAVE</a></li>
                             <li><a class="nav-link ms-4" href="longleave.php">LONG LEAVE</a></li>
                         </ul>  
-                    </li>
+                    </li> -->
                     <li>
-                        <a href="logout.php" class="nav-link px-3">
+                        <a href="../logout.php" class="nav-link px-3">
                             <span class="me-2"><i class="bi bi-lock"></i></span>
                             <span>Logout</span>
                         </a>
